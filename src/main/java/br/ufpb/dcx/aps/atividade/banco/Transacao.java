@@ -11,6 +11,8 @@ public class Transacao {
     private LocalDateTime dataHora;
 
     public Transacao(TipoTransacao tipo, BigDecimal valor){
+        this.tipo = tipo;
+        this.valor = valor;
         this.dataHora = LocalDateTime.now();
     }
 
@@ -33,4 +35,8 @@ public class Transacao {
         return dataHora;
     }
 
+    @Override
+    public String toString() {
+        return dataHora+" "+tipo+"\tR$ "+(this.tipo.equals(TipoTransacao.SAQUE)?"("+this.valor+")":" "+this.valor)+"\n";
+    }
 }
